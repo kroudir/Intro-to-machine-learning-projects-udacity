@@ -26,17 +26,19 @@ labels_train = labels_train[:len(labels_train)/100]
 #########################################################
 ### your code goes here ###
 from sklearn.svm import SVC
-
-clf = SVC(kernel="rbf")
-clf.fit(features_train,labels_train)
-
-pred = clf.predict(features_test)
-
-
 from sklearn.metrics import accuracy_score
-acc = accuracy_score(pred, labels_test)
 
-print acc
+c_value = 10
+
+for i in range(1,5):
+    clf = SVC(kernel="rbf", C = c_value)
+    clf.fit(features_train,labels_train)
+
+    pred = clf.predict(features_test)
+    acc = accuracy_score(pred, labels_test)
+    print c_value,":", acc
+    c_value = c_value * 10
+
 #########################################################
 
 
