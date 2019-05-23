@@ -19,4 +19,6 @@ import pickle
 
 enron_data = pickle.load(open("../final_project/final_project_dataset.pkl", "r"))
 
-print len(enron_data[enron_data.keys()[0]])
+for key, value in enron_data.iteritems() :
+    if (enron_data[key]["poi"] == True ):
+        print enron_data[key]['email_address']
