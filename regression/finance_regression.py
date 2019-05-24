@@ -29,7 +29,7 @@ target, features = targetFeatureSplit( data )
 from sklearn.model_selection import train_test_split
 feature_train, feature_test, target_train, target_test = train_test_split(features, target, test_size=0.5, random_state=42)
 train_color = "b"
-test_color = "r "
+test_color = "r"
 
 
 
@@ -43,10 +43,9 @@ mod.fit(feature_train,target_train)
 print "Slope ", mod.coef_
 print "Intercept", mod.intercept_
 
-
-
-
-
+from sklearn.metrics import r2_score
+acc = r2_score(target_train,mod.predict(feature_train),multioutput='variance_weighted')
+print "Accuracy is", acc
 
 ### draw the scatterplot, with color-coded training and testing points
 import matplotlib.pyplot as plt
