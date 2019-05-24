@@ -21,7 +21,8 @@ dictionary = pickle.load( open("../final_project/final_project_dataset_modified.
 
 ### list the features you want to look at--first item in the 
 ### list will be the "target" feature
-features_list = ["bonus", "salary"]
+features_list = ["bonus", "long_term_incentive"]
+
 data = featureFormat( dictionary, features_list, remove_any_zeroes=True)
 target, features = targetFeatureSplit( data )
 
@@ -44,7 +45,7 @@ print "Slope ", mod.coef_
 print "Intercept", mod.intercept_
 
 from sklearn.metrics import r2_score
-acc = r2_score(target_train,mod.predict(feature_train),multioutput='variance_weighted')
+acc = r2_score(target_test,mod.predict(feature_test),multioutput='variance_weighted')
 print "Accuracy is", acc
 
 ### draw the scatterplot, with color-coded training and testing points
