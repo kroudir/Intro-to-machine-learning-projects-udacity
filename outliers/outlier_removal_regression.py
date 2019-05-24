@@ -33,6 +33,9 @@ reg.fit(ages_train,net_worths_train)
 print "Slope", reg.coef_
 print "Intercept", reg.intercept_
 
+from sklearn.metrics import r2_score
+acc = r2_score(net_worths_test, reg.predict(ages_test))
+print "Accuracy", acc 
 
 
 try:
@@ -68,6 +71,11 @@ if len(cleaned_data) > 0:
     try:
         reg.fit(ages, net_worths)
         plt.plot(ages, reg.predict(ages), color="blue")
+        print "Slope", reg.coef_
+        print "Intercept", reg.intercept_
+        acc = r2_score(net_worths_test, reg.predict(ages_test))
+        print "Accuracy", acc 
+        
     except NameError:
         print "you don't seem to have regression imported/created,"
         print "   or else your regression object isn't named reg"

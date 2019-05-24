@@ -13,8 +13,11 @@ def outlierCleaner(predictions, ages, net_worths):
     
     cleaned_data = []
 
-    ### your code goes here
-
+    errors = (net_worths - predictions) * (net_worths - predictions)
+    for age, net_worth, error in zip(ages, net_worths, errors):
+        cleaned_data.append((age,net_worth,error))
     
-    return cleaned_data
+    cleaned_data.sort(key = lambda tup: tup[2])
+    
+    return cleaned_data[:81]
 
