@@ -14,6 +14,8 @@ import sys
 sys.path.append("../tools/")
 from feature_format import featureFormat, targetFeatureSplit
 
+from sklearn.cluster import KMeans
+
 
 
 
@@ -64,9 +66,8 @@ plt.show()
 
 ### cluster here; create predictions of the cluster labels
 ### for the data and store them to a list called pred
-
-
-
+kmeans = KMeans(n_clusters=2, random_state=0).fit(finance_features)
+pred = kmeans.labels_
 
 ### rename the "name" parameter when you change the number of features
 ### so that the figure gets saved to a different file
