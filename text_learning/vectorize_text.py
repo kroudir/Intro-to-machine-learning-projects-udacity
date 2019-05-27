@@ -58,9 +58,9 @@ for name, from_person in [("sara", from_sara), ("chris", from_chris)]:
             word_data.append(text)
             ### append a 0 to from_data if email is from Sara, and 1 if email is from Chris
             if name == "sara":
-                from_person.append(0)
+                from_data.append(0)
             else:
-                from_person.append(1)
+                from_data.append(1)
             email.close()
 
 print "emails processed"
@@ -77,5 +77,5 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 vect = TfidfVectorizer(stop_words="english")
 vect.fit_transform(word_data)
 print len(vect.get_feature_names())
-print vect.get_feature_names()[34597]
+print vect.get_feature_names()
 
