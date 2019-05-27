@@ -33,12 +33,14 @@ def parseOutText(f):
         ### split the text string into individual words, stem each word,
         ### and append the stemmed word to words (make sure there's a single
         ### space between each stemmed word)
-        
+        from nltk.stem.snowball import SnowballStemmer
+        stemmer = SnowballStemmer("english")
+        res = ''
+        for word in words.split(' '):
+            res += stemmer.stem(word)
+            res += ' '
 
-
-
-
-    return words
+    return res
 
     
 
