@@ -49,4 +49,12 @@ from sklearn.metrics import accuracy_score
 
 print accuracy_score(labels_test, pred)
 
+feature_num = 0
+
+for importance in clf.feature_importances_:
+	if importance >= 0.2:
+		print feature_num, importance, vectorizer.get_feature_names()[feature_num]
+
+	feature_num += 1
+
 
